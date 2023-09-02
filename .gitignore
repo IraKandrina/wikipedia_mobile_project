@@ -1,0 +1,9 @@
+/.idea
+/build
+/.gradle
+*.class
+/src/main
+/.github/workflows
+/gradle/wrapper
+gradlew
+gradlew.bat
