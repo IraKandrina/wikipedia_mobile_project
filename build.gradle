@@ -53,13 +53,8 @@ tasks.withType(Test) {
     }
 }
 
-task android_test(type: Test) {
+task mobile_test(type: Test) {
     useJUnitPlatform{
-        includeTags("android")
-    }
-}
-task ios_test(type: Test) {
-    useJUnitPlatform{
-        includeTags("ios")
+        includeTags("mobile")
     }
 }
