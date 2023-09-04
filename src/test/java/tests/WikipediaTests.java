@@ -12,7 +12,6 @@ import static io.qameta.allure.SeverityLevel.*;
 @Epic(value = "Wikipedia mobile tests")
 @Feature(value = "St.Petersburg Website")
 @Story("Main page")
-@Tag("mobile")
 public class WikipediaTests extends TestBase {
     SearchPage searchPage = new SearchPage();
     AddLanguagePage addLanguagePage = new AddLanguagePage();

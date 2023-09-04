@@ -18,7 +18,7 @@ import java.net.URL;
 import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
 import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
-public class LocalMobileDriver  implements WebDriverProvider {
+public class LocalMobileDriver implements WebDriverProvider {
     LocalConfig config = ConfigFactory.create(LocalConfig.class, System.getProperties());
 
     public static URL getAppiumServerUrl() {
@@ -46,7 +46,8 @@ public class LocalMobileDriver  implements WebDriverProvider {
 
     private String getAppPath() {
         String appUrl = "https://github.com/wikimedia/apps-android-wikipedia/" +
-                "releases/app-alpha-universal-release.apk";
+                "releases/download/latest/app-alpha-universal-release.apk";
+        //String appPath = "src/test/resources/apps/app-alpha-universal-release.apk";
         String appPath = "src/test/resources/apps/app-alpha-universal-release.apk";
 
         File app = new File(appPath);

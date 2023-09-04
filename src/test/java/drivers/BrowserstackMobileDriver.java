@@ -17,16 +17,14 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
 
     public static URL getBrowserstackUrl() {
         try {
-            return new URL(config.baseURL());
+            return new URL(config.getRemoteWebDriver());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
-
     @Nonnull
     @Override
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
-        RemoteConfig config = ConfigFactory.create(RemoteConfig.class, System.getProperties());
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
 
@@ -34,21 +32,25 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("browserstack.user", config.username());
         mutableCapabilities.setCapability("browserstack.key", config.password());
 
-        // Set URL of the application under test
-        mutableCapabilities.setCapability("app", config.app());
-
+        mutableCapabilities.setCapability("app", config.getApp());
         // Specify device and os_version for testing
-        mutableCapabilities.setCapability("device", config.device());
-        mutableCapabilities.setCapability("os_version", config.osVersion());
+        mutableCapabilities.setCapability("device", config.getDeviceName());
+        mutableCapabilities.setCapability("os_version", config.getVersion());
 
         // Set other BrowserStack capabilities
-        mutableCapabilities.setCapability("project", "First Java Project");
+        mutableCapabilities.setCapability("project", "BrowserStack Sample");
         mutableCapabilities.setCapability("build", "browserstack-build-1");
         mutableCapabilities.setCapability("name", "first_test");
 
 
         // Initialise the remote Webdriver using BrowserStack remote URL
         // and desired capabilities defined above
-        return new RemoteWebDriver(getBrowserstackUrl(), mutableCapabilities);
+        try {
+            return new RemoteWebDriver(
+                    new URL(config.getRemoteWebDriver()), mutableCapabilities);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
