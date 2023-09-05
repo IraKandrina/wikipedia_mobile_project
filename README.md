@@ -52,10 +52,10 @@ ____
 
 ____
 <a id="jenkins"></a>
-## <img alt="Jenkins" height="25" src="images/logo/Jenkins.svg" width="25"/></a><a name="Сборка"></a>Сборка в [Jenkins](https://jenkins.autotests.cloud/job/2gis-ui-final/)</a>
+## <img alt="Jenkins" height="25" src="images/logo/Jenkins.svg" width="25"/></a><a name="Сборка"></a>Сборка в [Jenkins](https://jenkins.autotests.cloud/job/wiki-mobile-final/)</a>
 ____
 <p align="center">  
-<a href="https://jenkins.autotests.cloud/job/2gis-ui-final/"><img src="images/screenshot/jenkinsBuild.png" alt="Jenkins" width="850"/></a>  
+<a href="https://jenkins.autotests.cloud/job/wiki-mobile-final/"><img src="images/screenshot/jenkinsBuild.png" alt="Jenkins" width="850"/></a>  
 </p>
 
 <a id="console"></a>
@@ -72,16 +72,9 @@ gradle clean test
 gradle clean test 
 -Denv=browserstack
 ```
-где:
-
-- <code>BROWSER</code> – браузер, в котором будут выполняться тесты.
-- <code>BROWSER_VERSION</code> – версия браузера, в которой будут выполняться тесты.
-- <code>BROWSER_SIZE</code> – размер окна браузера, в котором будут выполняться тесты.
-- <code>BASE_URL</code> – URL, по которому будет открываться тестируемый сайт.
-- <code>REMOTE_URL</code> – адрес удаленного сервера, на котором будут запускаться тесты.
 ___
 <a id="allure"></a>
-## <img alt="Allure" height="25" src="images/logo/Allure.svg" width="25"/></a> <a name="Allure"></a>Allure [отчет](https://jenkins.autotests.cloud/job/2gis-ui-final/15/allure/)</a>
+## <img alt="Allure" height="25" src="images/logo/Allure.svg" width="25"/></a> <a name="Allure"></a>Allure [отчет](https://jenkins.autotests.cloud/job/wiki-mobile-final/6/allure/)</a>
 ___
 
 ### *Основная страница отчёта*
@@ -104,19 +97,13 @@ ___
 
 ___
 <a id="allure-testops"></a>
-## <img alt="Allure" height="25" src="images/logo/Allure2.svg" width="25"/></a>Интеграция с <a target="_blank" href="https://allure.autotests.cloud/project/3542/dashboards">Allure TestOps</a>
+## <img alt="Allure" height="25" src="images/logo/Allure2.svg" width="25"/></a>Интеграция с <a target="_blank" href="https://allure.autotests.cloud/project/3646/dashboards">Allure TestOps</a>
 ____
 ### *Allure TestOps Dashboard*
 
 <p align="center">  
 <img title="Allure TestOps Dashboard" src="images/screenshot/allureTestOpsMain.png" width="850">  
 </p>  
-
-### *Ручные тест-кейсы*
-
-<p align="center">  
-<img title="Allure Tests" src="images/screenshot/allureTestOpsManual.png" width="850">  
-</p>
 
 ### *Авто тест-кейсы*
 
@@ -126,7 +113,7 @@ ____
 
 ___
 <a id="jira"></a>
-## <img alt="Allure" height="25" src="images/logo/Jira.svg" width="25"/></a> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-803">Jira</a>
+## <img alt="Allure" height="25" src="images/logo/Jira.svg" width="25"/></a> Интеграция с <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-867">Jira</a>
 ____
 <p align="center">  
 <img title="Jira" src="images/screenshot/jira.png" width="850">  
@@ -142,9 +129,9 @@ ____
 
 ____
 <a id="video"></a>
-## <img alt="Selenoid" height="25" src="images/logo/Selenoid.svg" width="25"/></a> Примеры видео выполнения тестов на Selenoid
+## <img alt="Selenoid" height="25" src="images/logo/Selenoid.svg" width="25"/></a> Примеры видео выполнения тестов в Browserstack
 ____
 <p align="center">
-<img title="Selenoid Video" src="images/video/video.gif" width="550" height="350"  alt="video">   
+<img title="Browserstack Video" src="images/video/video.gif" alt="video">   
 </p>
 

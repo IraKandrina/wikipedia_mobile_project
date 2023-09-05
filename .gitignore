@@ -7,5 +7,4 @@
 /gradle/wrapper
 gradlew
 gradlew.bat
-/notifications
-gradle.properties
+notifications/config.json
