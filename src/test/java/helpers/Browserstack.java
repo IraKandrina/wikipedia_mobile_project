@@ -8,11 +8,14 @@ import static java.lang.String.format;
 
 public class Browserstack {
     static RemoteConfig config = ConfigFactory.create(RemoteConfig.class, System.getProperties());
+
     public static String videoUrl(String sessionId) {
+        //RemoteConfig config = ConfigFactory.create(RemoteConfig.class);
+
         String url = format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 
         return given()
-                .auth().basic(config.username(), config.password())
+                .auth().basic(config.getUser(), config.getKey())
                 .when()
                 .get(url)
                 .then()

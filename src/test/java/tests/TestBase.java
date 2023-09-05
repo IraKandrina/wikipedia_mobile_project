@@ -15,11 +15,13 @@ import static com.codeborne.selenide.Selenide.*;
 public class TestBase {
     //public static String testType = System.getProperty("testType");
     //static String driver = System.getProperty("mobileDeviceHost", "browserstack");
-    //public static String deviceHost = System.getProperty("deviceHost");
+    public static String deviceHost = System.getProperty("deviceHost");
     //public static String testType = System.getProperty("testType");
-    public static String testType = System.getProperty("testType");
-    @BeforeAll
-    static void beforeAll() {
+    //public static String testType = System.getProperty("testType");
+
+    //public static String testType = "local";
+//    @BeforeAll
+//    static void beforeAll() {
 //        if (driver.equals("browserstack")) {
 //            Configuration.browser = BrowserstackMobileDriver.class.getName();
 //        } else if (driver.equals("emulation")) {
@@ -58,21 +60,64 @@ public class TestBase {
 //        Configuration.browserSize = null;
 //        Configuration.timeout = 30000;
 
-        if (testType == null) {
-            testType = "local";
-        }
+//        if (testType == null) {
+//            testType = "local";
+//        }
+//
+//        switch (testType) {
+//            case "local":
+//                Configuration.browser = LocalMobileDriver.class.getName();
+//                System.out.println("local test start");
+//                break;
+//            case "browserstack":
+//                Configuration.browser = BrowserstackMobileDriver.class.getName();
+//                System.out.println("remote test start");
+//                break;
+//        }
+//        Configuration.browserSize = null;
+//    }
+//
+//    @BeforeEach
+//    void addListener() {
+//        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+//        open();
+//    }
+//
+//    @AfterEach
+//    void afterEach() {
+//        String sessionId = sessionId().toString();
+//        Attach.screenshotAs("Last screenshot");
+//        Attach.pageSource();
+//        closeWebDriver();
+//
+//        if (testType.equals("browserstack")) {
+//            Attach.addVideo(sessionId);
+//        }
+//
+////        switch (testType) {
+////            case "browserstack":
+////                Attach.video(sessionId);
+////                break;
+////        }
+//
+//
+//    }
 
-        switch (testType) {
-            case "local":
-                Configuration.browser = LocalMobileDriver.class.getName();
-                System.out.println("local test start");
-                break;
-            case "browserstack":
-                Configuration.browser = BrowserstackMobileDriver.class.getName();
-                System.out.println("remote test start");
-                break;
-        }
+    @BeforeAll
+    static void beforeAll() {
+//        switch (deviceHost) {
+//            case "browserstack":
+//                Configuration.browser = BrowserstackMobileDriver.class.getName();
+//                break;
+//            case "local":
+//                Configuration.browser = LocalMobileDriver.class.getName();
+//                break;
+//        }
+//        Configuration.browserSize = null;
+
+        Configuration.browser = BrowserstackMobileDriver.class.getName();
         Configuration.browserSize = null;
+        Configuration.timeout = 30000;
     }
 
     @BeforeEach
@@ -82,22 +127,16 @@ public class TestBase {
     }
 
     @AfterEach
-    void afterEach() {
+    void addAttachments() {
         String sessionId = sessionId().toString();
-        Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-        closeWebDriver();
-
-        if (testType.equals("browserstack")) {
-            Attach.addVideo(sessionId);
-        }
-
-//        switch (testType) {
-//            case "browserstack":
-//                Attach.video(sessionId);
-//                break;
+//        if (deviceHost.equals("local")) {
+//            Attach.screenshotAs("Last screenshot");
 //        }
-
-
+//        if (deviceHost.equals("browserstack")) {
+//            Attach.addVideo(sessionId);
+//        }
+        Attach.addVideo(sessionId);
+        closeWebDriver();
     }
 }

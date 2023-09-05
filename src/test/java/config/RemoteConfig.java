@@ -4,6 +4,7 @@ import org.aeonbits.owner.Config;
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
+        "classpath:config/base.properties",
         "classpath:config/remote.properties"
 })
 
@@ -71,26 +72,54 @@ public interface RemoteConfig extends Config {
 //    @Key("name")
 //    String testName();
 
-    @Key("username")
-    String username();
+//    @Key("username")
+//    String username();
+//
+//    @Key("password")
+//    String password();
+//
+//    @Key("app")
+//    @DefaultValue("bs://b3a8c2e8fd6c9705ba6c622b7db55ac194c0e36b")
+//    String getApp();
+//
+//    @Key("deviceName")
+//    @DefaultValue("Google Pixel 5")
+//    String getDeviceName();
+//
+//    @Key("version")
+//    @DefaultValue("12.0")
+//    String getVersion();
+//
+//    @Key("baseURL")
+//    @DefaultValue("http://hub.browserstack.com/wd/hub")
+//    String getRemoteWebDriver();
 
-    @Key("password")
-    String password();
+
+
+    @Key("user")
+    String getUser();
+
+    @Key("key")
+    String getKey();
 
     @Key("app")
-    @DefaultValue("bs://b3a8c2e8fd6c9705ba6c622b7db55ac194c0e36b")
     String getApp();
 
-    @Key("deviceName")
-    @DefaultValue("Google Pixel 5")
-    String getDeviceName();
+    @Key("device")
+    String getDevice();
 
-    @Key("version")
-    @DefaultValue("12.0")
-    String getVersion();
+    @Key("os_version")
+    String getOsVersion();
 
-    @Key("baseURL")
-    @DefaultValue("http://hub.browserstack.com/wd/hub")
-    String getRemoteWebDriver();
+    @Key("project")
+    String getProject();
 
+    @Key("build")
+    String getBuild();
+
+    @Key("name")
+    String getName();
+
+    @Key("urlRemoteWebDriver")
+    String getUrlRemoteWebDriver();
 }

@@ -14,8 +14,8 @@ public class SearchPage {
         return this;
     }
 
-    public SearchPage setSearchValue(String value) {
-        $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).sendKeys(value);
+    public SearchPage setSearchValue() {
+        $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).sendKeys("HTML");
         return this;
     }
 
