@@ -28,6 +28,7 @@ public static URL getAppiumServerUrl() {
 }
 
     @Override
+    @Nonnull
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
         UiAutomator2Options options = new UiAutomator2Options();
         options.merge(capabilities);
