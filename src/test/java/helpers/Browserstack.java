@@ -10,7 +10,6 @@ public class Browserstack {
     static RemoteConfig config = ConfigFactory.create(RemoteConfig.class, System.getProperties());
 
     public static String videoUrl(String sessionId) {
-        //RemoteConfig config = ConfigFactory.create(RemoteConfig.class);
 
         String url = format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 

@@ -14,24 +14,22 @@ public class AddLanguagePage {
     }
 
     public AddLanguagePage clickSettingsButton() {
-        $(AppiumBy.id("org.wikipedia.alpha:id/explore_overflow_settings_container")).click();
+        $(AppiumBy.id("org.wikipedia.alpha:id/explore_overflow_settings")).click();
         return this;
     }
 
-    public AddLanguagePage clickAddLanguageButton() {
-        $$(AppiumBy.className("android.widget.TextView")).findBy(text("Wikipedia languages")).click();
-        //$(AppiumBy.id("org.wikipedia.alpha:id/search_lang_button")).click();
-        $$(AppiumBy.id("org.wikipedia.alpha:id/wiki_language_title")).findBy(text("ADD LANGUAGE")).click();
+    public AddLanguagePage clickLanguageField() {
+        $$(AppiumBy.className("android.widget.TextView")).findBy(text("Wikipedia language")).click();
         return this;
     }
 
     public AddLanguagePage selectLanguage() {
-        $$(AppiumBy.id("org.wikipedia.alpha:id/localized_language_name")).findBy(text("English")).click();
+        $$(AppiumBy.id("org.wikipedia.alpha:id/localized_language_name")).findBy(text("Deutsch")).click();
         return this;
     }
 
     public AddLanguagePage checkLanguage() {
-        $$(AppiumBy.className("android.widget.TextView")).findBy(text("English")).shouldBe(visible);
+        $$(AppiumBy.className("android.widget.TextView")).findBy(text("Deutsch")).shouldBe(visible);
         return this;
     }
 }
