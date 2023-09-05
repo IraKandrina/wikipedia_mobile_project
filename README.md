@@ -132,6 +132,6 @@ ____
 ## <img alt="Selenoid" height="25" src="images/logo/Selenoid.svg" width="25"/></a> Примеры видео выполнения тестов в Browserstack
 ____
 <p align="center">
-<img title="Browserstack Video" src="images/video/video.gif" alt="video">   
+<img title="Browserstack Video" src="images/video/video.gif" height="550" alt="video">   
 </p>
 
