@@ -6,7 +6,6 @@ import pages.*;
 import pages.components.MenuComponent;
 import pages.components.SelectLanguageComponent;
 
-import static com.codeborne.selenide.Selenide.back;
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.*;
 
@@ -26,7 +25,6 @@ public class WikipediaTests extends TestBase {
     @Test
     @DisplayName("Отображение результатов поиска")
     void searchValueTest() {
-        back();
         step("Нажать на строку ввода", () -> {
             searchPage.clickSearch();
         });
@@ -42,7 +40,6 @@ public class WikipediaTests extends TestBase {
     @Test
     @DisplayName("Открытие статьи")
     void successfulOpenArticleTest() {
-        back();
         step("Нажать на строку ввода", () -> {
             searchPage.clickSearch();
         });
@@ -65,7 +62,6 @@ public class WikipediaTests extends TestBase {
     @Test
     @DisplayName("Выбор языка")
     void addLanguage() {
-        back();
         step("Нажать на иконку меню с настройками", () -> {
             searchPage.clickMenuButton();
         });
