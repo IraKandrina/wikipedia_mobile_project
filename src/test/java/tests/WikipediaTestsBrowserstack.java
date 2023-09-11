@@ -6,7 +6,6 @@ import pages.*;
 import pages.components.MenuComponent;
 import pages.components.SelectLanguageComponent;
 
-import static com.codeborne.selenide.Selenide.back;
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.*;
 
@@ -14,7 +13,8 @@ import static io.qameta.allure.SeverityLevel.*;
 @Epic(value = "Wikipedia mobile tests")
 @Feature(value = "Wikipedia mobile site")
 @Story("Main page")
-public class WikipediaTests extends TestBase {
+@Tag("remote")
+public class WikipediaTestsBrowserstack extends TestBase {
     SearchPage searchPage = new SearchPage();
     ResultsPage resultsPage = new ResultsPage();
     ErrorPage errorPage = new ErrorPage();
@@ -26,9 +26,6 @@ public class WikipediaTests extends TestBase {
     @Test
     @DisplayName("Отображение результатов поиска")
     void searchValueTest() {
-        step("Пропускаем шаги", () ->
-                back()
-        );
         step("Нажать на строку ввода", () -> {
             searchPage.clickSearch();
         });
