@@ -26,7 +26,9 @@ public class WikipediaTests extends TestBase {
     @Test
     @DisplayName("Отображение результатов поиска")
     void searchValueTest() {
-        back();
+        step("Пропускаем шаги", () ->
+                back()
+        );
         step("Нажать на строку ввода", () -> {
             searchPage.clickSearch();
         });
