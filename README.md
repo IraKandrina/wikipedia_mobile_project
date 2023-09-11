@@ -64,13 +64,13 @@ ___
 ***Локальный запуск:***
 ```bash  
 gradle clean test
--Denv=local
+-DdeviceHost=local
 ```
 
 ***Удалённый запуск через Jenkins:***
 ```bash  
 gradle clean test 
--Denv=browserstack
+-DdeviceHost=browserstack
 ```
 ___
 <a id="allure"></a>

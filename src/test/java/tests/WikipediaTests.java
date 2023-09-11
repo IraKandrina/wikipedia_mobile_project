@@ -2,23 +2,31 @@ package tests;
 
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
-import pages.AddLanguagePage;
-import pages.SearchPage;
+import pages.*;
+import pages.components.MenuComponent;
+import pages.components.SelectLanguageComponent;
 
+import static com.codeborne.selenide.Selenide.back;
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.*;
 
 @Owner("IraKandrina")
 @Epic(value = "Wikipedia mobile tests")
-@Feature(value = "St.Petersburg Website")
+@Feature(value = "Wikipedia mobile site")
 @Story("Main page")
 public class WikipediaTests extends TestBase {
     SearchPage searchPage = new SearchPage();
-    AddLanguagePage addLanguagePage = new AddLanguagePage();
+    ResultsPage resultsPage = new ResultsPage();
+    ErrorPage errorPage = new ErrorPage();
+    MenuComponent menuComponent = new MenuComponent();
+    SettingsPage settingsPage = new SettingsPage();
+    SelectLanguageComponent selectLanguageComponent = new SelectLanguageComponent();
+
     @Severity(CRITICAL)
     @Test
     @DisplayName("Отображение результатов поиска")
     void searchValueTest() {
+        back();
         step("Нажать на строку ввода", () -> {
             searchPage.clickSearch();
         });
@@ -26,7 +34,7 @@ public class WikipediaTests extends TestBase {
             searchPage.setSearchValue();
         });
         step("Проверить отображение результатов поиска", () -> {
-            searchPage.checkResults();
+            resultsPage.checkResults();
         });
     }
 
@@ -34,6 +42,7 @@ public class WikipediaTests extends TestBase {
     @Test
     @DisplayName("Открытие статьи")
     void successfulOpenArticleTest() {
+        back();
         step("Нажать на строку ввода", () -> {
             searchPage.clickSearch();
         });
@@ -41,14 +50,14 @@ public class WikipediaTests extends TestBase {
             searchPage.setSearchValue();
         });
         step("Проверить отображение результатов поиска", () -> {
-            searchPage.checkResults();
+            resultsPage.checkResults();
         });
         step("Открыть статью", () -> {
-            searchPage.selectArticle();
+            resultsPage.selectArticle();
         });
         step("Проверить результаты", () -> {
-            searchPage.checkErrorButton();
-            searchPage.checkErrorText();
+            errorPage.checkErrorButton();
+            errorPage.checkErrorText();
         });
     }
 
@@ -56,18 +65,21 @@ public class WikipediaTests extends TestBase {
     @Test
     @DisplayName("Выбор языка")
     void addLanguage() {
+        back();
         step("Нажать на иконку меню с настройками", () -> {
-            addLanguagePage.clickMenuButton();
+            searchPage.clickMenuButton();
         });
         step("Выбрать пункт меню Настройки", () -> {
-            addLanguagePage.clickSettingsButton();
+            menuComponent.clickSettingsButton();
+        });
+        step("Открыть панель выбора языка", () -> {
+            settingsPage.clickLanguageField();
         });
         step("Выбрать язык", () -> {
-            addLanguagePage.clickLanguageField()
-                    .selectLanguage();
+            selectLanguageComponent.selectLanguage();
         });
         step("Проверить, что выбран новый язык", () -> {
-            addLanguagePage.checkLanguage();
+            settingsPage.checkLanguage();
         });
     }
 }
