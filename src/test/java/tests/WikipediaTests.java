@@ -6,6 +6,7 @@ import pages.*;
 import pages.components.MenuComponent;
 import pages.components.SelectLanguageComponent;
 
+import static com.codeborne.selenide.Selenide.back;
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.*;
 
@@ -25,6 +26,7 @@ public class WikipediaTests extends TestBase {
     @Test
     @DisplayName("Отображение результатов поиска")
     void searchValueTest() {
+        back();
         step("Нажать на строку ввода", () -> {
             searchPage.clickSearch();
         });
