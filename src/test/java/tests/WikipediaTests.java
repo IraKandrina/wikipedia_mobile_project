@@ -14,7 +14,7 @@ import static io.qameta.allure.SeverityLevel.*;
 @Epic(value = "Wikipedia mobile tests")
 @Feature(value = "Wikipedia mobile site")
 @Story("Main page")
-public class WikipediaTestsBrowserstack extends TestBase {
+public class WikipediaTests extends TestBase {
     SearchPage searchPage = new SearchPage();
     ResultsPage resultsPage = new ResultsPage();
     ErrorPage errorPage = new ErrorPage();
@@ -25,8 +25,11 @@ public class WikipediaTestsBrowserstack extends TestBase {
     @Severity(CRITICAL)
     @Test
     @DisplayName("Отображение результатов поиска")
-    @Tag("browserstack")
+    @Tag("local")
     void searchValueTest() {
+        step("Нажать кнопку назад", () -> {
+            back();
+        });
         step("Нажать на строку ввода", () -> {
             searchPage.clickSearch();
         });
@@ -64,11 +67,8 @@ public class WikipediaTestsBrowserstack extends TestBase {
     @Severity(NORMAL)
     @Test
     @DisplayName("Выбор языка")
-    @Tag("local")
+    @Tag("browserstack")
     void addLanguage() {
-        step("Пропустить шаги", () -> {
-            back();
-        });
         step("Нажать на иконку меню с настройками", () -> {
             searchPage.clickMenuButton();
         });

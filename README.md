@@ -63,15 +63,17 @@ ____
 ___
 ***Локальный запуск:***
 ```bash  
-gradle clean test
+gradle clean local_test
 -DdeviceHost=local
 ```
-
+> Внимание! Для запуска локальных тестов на компьютере должны быть установлены Android Studio, Appium Server и Appium Inspector.
+>
 ***Удалённый запуск через Jenkins:***
 ```bash  
-gradle clean test 
+gradle clean browserstack_test 
 -DdeviceHost=browserstack
 ```
+> Для запуска необходимо нажать "Собрать сейчас".
 ___
 <a id="allure"></a>
 ## <img alt="Allure" height="25" src="images/logo/Allure.svg" width="25"/></a> <a name="Allure"></a>Allure [отчет](https://jenkins.autotests.cloud/job/wiki-mobile-final/6/allure/)</a>
