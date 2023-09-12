@@ -63,15 +63,13 @@ ____
 ___
 ***Локальный запуск:***
 ```bash  
-gradle clean local_test
--DdeviceHost=local
+gradle clean local_test -DdeviceHost=local
 ```
 > Внимание! Для запуска локальных тестов на компьютере должны быть установлены Android Studio, Appium Server и Appium Inspector.
 >
 ***Удалённый запуск через Jenkins:***
 ```bash  
-gradle clean browserstack_test 
--DdeviceHost=browserstack
+gradle clean browserstack_test -DdeviceHost=browserstack
 ```
 > Для запуска необходимо нажать "Собрать сейчас".
 ___
