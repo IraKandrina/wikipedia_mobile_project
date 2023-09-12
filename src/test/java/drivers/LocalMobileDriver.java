@@ -27,8 +27,8 @@ public class LocalMobileDriver implements WebDriverProvider {
         }
     }
 
-    @Override
     @Nonnull
+    @Override
     public WebDriver createDriver(@Nonnull Capabilities capabilities) {
         UiAutomator2Options options = new UiAutomator2Options();
         options.merge(capabilities);
@@ -45,7 +45,8 @@ public class LocalMobileDriver implements WebDriverProvider {
     }
 
     private String getAppPath() {
-        String appUrl = "https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/app-alpha-universal-release.apk";
+        String appUrl = "https://github.com/wikimedia/apps-android-wikipedia/" +
+                "releases/download/latest/app-alpha-universal-release.apk";
         String appPath = "src/test/resources/apps/app-alpha-universal-release.apk";
 
 

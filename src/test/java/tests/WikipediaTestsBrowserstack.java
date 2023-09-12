@@ -6,6 +6,7 @@ import pages.*;
 import pages.components.MenuComponent;
 import pages.components.SelectLanguageComponent;
 
+import static com.codeborne.selenide.Selenide.back;
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.*;
 
@@ -13,7 +14,6 @@ import static io.qameta.allure.SeverityLevel.*;
 @Epic(value = "Wikipedia mobile tests")
 @Feature(value = "Wikipedia mobile site")
 @Story("Main page")
-@Tag("browserstack")
 public class WikipediaTestsBrowserstack extends TestBase {
     SearchPage searchPage = new SearchPage();
     ResultsPage resultsPage = new ResultsPage();
@@ -25,6 +25,7 @@ public class WikipediaTestsBrowserstack extends TestBase {
     @Severity(CRITICAL)
     @Test
     @DisplayName("Отображение результатов поиска")
+    @Tag("browserstack")
     void searchValueTest() {
         step("Нажать на строку ввода", () -> {
             searchPage.clickSearch();
@@ -40,6 +41,7 @@ public class WikipediaTestsBrowserstack extends TestBase {
     @Severity(NORMAL)
     @Test
     @DisplayName("Открытие статьи")
+    @Tag("browserstack")
     void successfulOpenArticleTest() {
         step("Нажать на строку ввода", () -> {
             searchPage.clickSearch();
@@ -62,7 +64,11 @@ public class WikipediaTestsBrowserstack extends TestBase {
     @Severity(NORMAL)
     @Test
     @DisplayName("Выбор языка")
+    @Tag("local")
     void addLanguage() {
+        step("Пропустить шаги", () -> {
+            back();
+        });
         step("Нажать на иконку меню с настройками", () -> {
             searchPage.clickMenuButton();
         });
