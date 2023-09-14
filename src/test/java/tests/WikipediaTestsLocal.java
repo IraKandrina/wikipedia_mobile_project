@@ -10,6 +10,7 @@ import pages.SearchPage;
 import static com.codeborne.selenide.Selenide.back;
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
+import static io.qameta.allure.SeverityLevel.NORMAL;
 
 @Owner("IraKandrina")
 @Epic(value = "Wikipedia mobile tests")
@@ -24,7 +25,7 @@ public class WikipediaTestsLocal extends TestBase {
     @Test
     @DisplayName("Отображение результатов поиска")
     void searchValueTest() {
-        step("Нажать кнопку назад", () -> {
+        step("Нажать кнопку Назад", () -> {
             back();
         });
         step("Нажать на строку ввода", () -> {
@@ -38,4 +39,27 @@ public class WikipediaTestsLocal extends TestBase {
         });
     }
 
+    @Severity(NORMAL)
+    @Test
+    @DisplayName("Открытие статьи")
+    void successfulOpenArticleTest() {
+        step("Нажать кнопку Назад", () -> {
+            back();
+        });
+        step("Нажать на строку ввода", () -> {
+            searchPage.clickSearch();
+        });
+        step("Ввести значение в строку поиска", () -> {
+            searchPage.setSearchValue();
+        });
+        step("Проверить отображение результатов поиска", () -> {
+            resultsPage.checkResults();
+        });
+        step("Открыть статью", () -> {
+            resultsPage.selectArticle();
+        });
+        step("Проверить отображение статьи", () -> {
+            resultsPage.checkArticleIsVisible();
+        });
+    }
 }
